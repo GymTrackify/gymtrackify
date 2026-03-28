@@ -2,14 +2,15 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>GymTrackify</title>
+<title>GymTrackify - Manutenção</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body {
   margin: 0;
-  background: #000;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: radial-gradient(circle at top, #0f0f0f, #000);
   color: white;
-  font-family: Arial;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,20 +18,64 @@ body {
   text-align: center;
 }
 
+/* container */
+.container {
+  max-width: 400px;
+}
+
+/* logo */
 .logo {
-  font-size: 40px;
-  font-weight: bold;
-  letter-spacing: 3px;
+  width: 140px;
+  margin-bottom: 20px;
+  animation: fadeUp 1.2s ease;
+}
+
+/* título */
+h1 {
+  font-size: 26px;
+  margin-bottom: 10px;
   animation: fadeUp 1.5s ease;
 }
 
-.sub {
-  margin-top: 10px;
-  color: #888;
-  animation: fadeUp 2s ease;
+/* texto */
+p {
+  color: #aaa;
+  margin-bottom: 25px;
+  animation: fadeUp 1.8s ease;
 }
 
-/* animação */
+/* loader */
+.loader {
+  width: 45px;
+  height: 45px;
+  border: 4px solid #222;
+  border-top: 4px solid #00c853;
+  border-radius: 50%;
+  margin: 20px auto;
+  animation: spin 1s linear infinite;
+}
+
+/* botão */
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #00c853;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #00e676;
+}
+
+/* animações */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -46,9 +91,22 @@ body {
 
 <body>
 
-<div>
-  <div class="logo">GYMTRACKIFY</div>
-  <div class="sub">em breve</div>
+<div class="container">
+
+  <!-- SUA LOGO -->
+  <img src="gymtrackify/img/logo.png" class="logo" alt="GymTrackify">
+
+  <h1>🚧 Em manutenção</h1>
+
+  <p>
+    Estamos evoluindo o GymTrackify para entregar uma experiência ainda melhor.
+    Em breve, novidades estarão disponíveis.
+  </p>
+
+  <div class="loader"></div>
+
+  <button onclick="location.reload()">Atualizar</button>
+
 </div>
 
 </body>
