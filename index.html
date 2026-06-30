@@ -2,139 +2,97 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>GymTrackify - Manutenção</title>
-<link rel="icon" type="https://avatars.githubusercontent.com/u/271838800?s=200v=4" href="favicon.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+<title>GymTrackify</title>
 
 <style>
 body {
   margin: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: radial-gradient(circle at top, #0f0f0f, #000);
-  color: white;
-  display: flex;
-  flex-direction: column;
+  background: #000;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* imagem */
+img {
+  width: 100%;
   height: 100vh;
+  object-fit: cover;
 }
 
-/* centralização */
-main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+/* overlay */
+.overlay {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
 }
 
-/* container */
-.container {
-  max-width: 400px;
+/* barra de progresso */
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-/* logo */
-.logo {
-  font-size: 36px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-
-  background: linear-gradient(90deg, #888, #ffffff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  animation: fadeUp 1.2s ease;
+.progress {
+  width: 0%;
+  height: 100%;
+  background: white;
+  animation: load 5s linear forwards;
 }
 
-/* título */
-h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  animation: fadeUp 1.5s ease;
+@keyframes load {
+  from { width: 0%; }
+  to { width: 100%; }
 }
 
-/* texto */
-p {
+/* texto opcional */
+.text {
   color: #aaa;
-  margin-bottom: 25px;
-  animation: fadeUp 1.8s ease;
-}
-
-/* loader */
-.loader {
-  width: 45px;
-  height: 45px;
-  border: 4px solid #222;
-  border-top: 4px solid #ffffff;
-  border-radius: 50%;
-  margin: 20px auto;
-  animation: spin 1s linear infinite;
-}
-
-/* footer */
-footer {
-  text-align: center;
-  padding: 15px;
   font-size: 12px;
-  color: #666;
-  border-top: 1px solid #222;
+  margin-top: 8px;
+  text-align: center;
+  letter-spacing: 1px;
 }
 
-/* link */
-footer a {
-  color: #aaa;
-  text-decoration: none;
-  transition: 0.3s;
+/* fade */
+.fade-out {
+  animation: fadeOut 1s ease forwards;
 }
 
-footer a:hover {
-  color: #ffffff;
-}
-
-/* animações */
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fadeOut {
+  to { opacity: 0; }
 }
 </style>
 </head>
 
 <body>
 
-<main>
-  <div class="container">
+<img id="splash" src="imagens/1.png" alt="Loading">
 
-    <div class="logo">GymTrackify</div>
-
-    <h1>🚧 Em manutenção</h1>
-
-    <p>
-      Estamos evoluindo a plataforma para entregar uma experiência ainda melhor.
-      Em breve, novidades estarão disponíveis.
-    </p>
-
-    <div class="loader"></div>
-
+<div class="overlay">
+  <div class="progress-bar">
+    <div class="progress"></div>
   </div>
-</main>
+  <div class="text">carregando...</div>
+</div>
 
-<footer>
-  © 2026 GymTrackify • 
-  <a href="https://github.com/GymTrackify" target="_blank">
-    GitHub
-  </a>
-</footer>
+<script>
+const splash = document.getElementById("splash");
+
+// tempo total (5s)
+setTimeout(() => {
+  splash.classList.add("fade-out");
+
+  setTimeout(() => {
+    window.location.replace("https://gymtrackify.netlify.app/");
+  }, 1000);
+
+}, 5000);
+</script>
 
 </body>
 </html>
