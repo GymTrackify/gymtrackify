@@ -1,98 +1,224 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>GymTrackify</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-body {
-  margin: 0;
-  background: #000;
-  overflow: hidden;
-  font-family: Arial, sans-serif;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
 }
 
-/* imagem */
-img {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
+:root{
+
+--bg:#050505;
+--surface:#0d0d0d;
+--border:#1d1d1d;
+--text:#fafafa;
+--muted:#8f8f94;
+--accent:#2563eb;
+
 }
 
-/* overlay */
-.overlay {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
+body{
+
+background:var(--bg);
+color:var(--text);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:32px;
+position:relative;
+overflow:hidden;
+
 }
 
-/* barra de progresso */
-.progress-bar {
-  width: 100%;
-  height: 4px;
-  background: rgba(255,255,255,0.2);
-  border-radius: 10px;
-  overflow: hidden;
+
+body::after{
+
+content:"";
+position:absolute;
+inset:0;
+background-image:
+linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+background-size:48px 48px;
+mask-image:radial-gradient(circle at center,black 30%,transparent 95%);
+
 }
 
-.progress {
-  width: 0%;
-  height: 100%;
-  background: white;
-  animation: load 5s linear forwards;
+main{
+
+position:relative;
+z-index:2;
+
+width:100%;
+max-width:720px;
+
+background:rgba(13,13,13,.75);
+
+backdrop-filter:blur(20px);
+
+border:1px solid var(--border);
+
+border-radius:22px;
+
+padding:60px;
+
 }
 
-@keyframes load {
-  from { width: 0%; }
-  to { width: 100%; }
+.logo{
+    display:flex;
+    justify-content:center;
+    margin-bottom:48px;
 }
 
-/* texto opcional */
-.text {
-  color: #aaa;
-  font-size: 12px;
-  margin-top: 8px;
-  text-align: center;
-  letter-spacing: 1px;
+.logo img{
+    width:220px;
+    height:auto;
 }
 
-/* fade */
-.fade-out {
-  animation: fadeOut 1s ease forwards;
+
+.badge{
+
+display:inline-flex;
+align-items:center;
+gap:8px;
+
+padding:8px 14px;
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:999px;
+
+font-size:13px;
+
+color:#cfcfcf;
+
+margin-bottom:28px;
+
 }
 
-@keyframes fadeOut {
-  to { opacity: 0; }
+.dot{
+
+width:7px;
+height:7px;
+border-radius:50%;
+background:#ef4444;
+
 }
+
+h1{
+
+font-size:48px;
+line-height:1.1;
+letter-spacing:-2px;
+margin-bottom:24px;
+
+}
+
+p{
+
+font-size:17px;
+line-height:1.9;
+color:var(--muted);
+
+}
+
+.divider{
+
+margin:40px 0;
+height:1px;
+background:var(--border);
+
+}
+
+small{
+
+display:block;
+color:#666;
+line-height:1.8;
+
+}
+
+@media(max-width:700px){
+
+main{
+
+padding:35px;
+
+}
+
+h1{
+
+font-size:34px;
+
+}
+
+p{
+
+font-size:16px;
+
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
-<img id="splash" src="imagens/1.png" alt="Loading">
+<main>
 
-<div class="overlay">
-  <div class="progress-bar">
-    <div class="progress"></div>
-  </div>
-  <div class="text">carregando...</div>
+<div class="logo">
+
+<div class="logo-icon">
+
 </div>
 
-<script>
-const splash = document.getElementById("splash");
+<div class="logo">
+    <img src="imagens/1.png" alt="GymTrackify">
+</div>
 
-// tempo total (5s)
-setTimeout(() => {
-  splash.classList.add("fade-out");
+</div>
 
-  setTimeout(() => {
-    window.location.replace("https://gymtrackify-site.netlify.app/");
-  }, 1000);
 
-}, 5000);
-</script>
+
+
+
+</div>
+
+<h1>GymTrackify foi oficialmente descontinuado.</h1>
+
+<p>
+Informamos que a plataforma <strong>GymTrackify</strong> encerrou permanentemente suas operações e não está mais disponível para utilização.
+</p>
+
+<p style="margin-top:20px;">
+A decisão faz parte do encerramento definitivo do projeto. Todos os serviços relacionados foram desativados e não receberão novas atualizações, suporte ou manutenção.
+</p>
+
+<div class="divider"></div>
+
+<small>
+© 2026 GymTrackify. Todos os direitos reservados.
+</small>
+
+</main>
 
 </body>
+
 </html>
